@@ -21,7 +21,7 @@ public class MazeMaker extends Canvas {
     public static final double snakeSpawnChance = 0.05;
     // theoretically, the smaller this number, the farther the snakes will go until branching off into new snakes.
     public static final int slowMotionTimestep = 1;
-    // 50 is a good value to choose to watch it generate
+    // 50 is a good value to choose to watch it generate.
 
     public static boolean[][][] maze;
     public static ArrayList<Point> snakes;
