@@ -3,7 +3,7 @@ import java.awt.*;
 public class SnakeMaker extends Thread{
     public void run() {
         while (true) {
-            System.out.println(MazeMaker.snakes.size());
+            //System.out.println(MazeMaker.snakes.size());
             // adds some delay if people want to see it generate in slow motion.
             if (MazeMaker.slowMotionTimestep != 0) {
                 try {
@@ -61,7 +61,8 @@ public class SnakeMaker extends Thread{
                     break;
                 }
                 // chooses a random direction
-                int r = (int)(Math.random()*100);
+                //int r = (int)(Math.random()*100);
+                int r = (int)(MazeMaker.r.nextFloat()*100);
                 int chosenDirectionNum = (r%directionCount) + 1;
                 int chosenDirection = -1;
                 while (chosenDirectionNum>0) {
@@ -125,7 +126,7 @@ public class SnakeMaker extends Thread{
                 }
                 // adds new snakes
                 for (int i = directionCount-1; i>0; i-=1) {
-                    if (Math.random()<MazeMaker.snakeSpawnChance) {
+                    if (MazeMaker.r.nextFloat()<MazeMaker.snakeSpawnChance) {
                         if (directionCount==2) {
                             if (left[1] && !left[0]) {
                                 MazeMaker.snakesToAdd.add(new Point(pSnakeX-1, pSnakeY));
@@ -233,7 +234,7 @@ public class SnakeMaker extends Thread{
                             MazeMaker.snakes.add(new Point(x, y));
                             MazeMaker.maze[x][y][0] = true;
                             // chooses a random direction
-                            int r = (int)(Math.random()*100);
+                            int r = (int)(MazeMaker.r.nextFloat()*100);
                             int chosenDirectionNum = (r%directionCount) + 1;
                             int chosenDirection = -1;
                             while (chosenDirectionNum>0) {
